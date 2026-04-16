@@ -1,5 +1,5 @@
 {
-  "name": "sveltekit-on-cloudflare-varlock-example",
+  "name": "sveltekit-varlock-example",
   "private": true,
   "version": "0.0.1",
   "type": "module",
@@ -7,7 +7,10 @@
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "varlock-wrangler deploy",
+    "dev:cf": "SVELTE_ADAPTER=cloudflare vite dev",
+    "build:cf": "SVELTE_ADAPTER=cloudflare vite build",
+    "preview:cf": "SVELTE_ADAPTER=cloudflare vite preview",
+    "deploy:cf": "SVELTE_ADAPTER=cloudflare varlock-wrangler deploy",
     "prepare": "svelte-kit sync || echo ''",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -16,7 +19,7 @@
     "test": "npm run test:unit -- --run"
   },
   "dependencies": {
-    "varlock": "^0.8.2"
+    "varlock": "link:../../../varlock/packages/varlock"
   },
   "devDependencies": {
     "@eslint/compat": "^1.4.0",
@@ -26,9 +29,8 @@
     "@sveltejs/kit": "^2.48.5",
     "@sveltejs/vite-plugin-svelte": "^6.2.1",
     "@types/node": "^24",
-    "@varlock/1password-plugin": "^0.3.5",
     "@varlock/cloudflare-integration": "https://pkg.pr.new/@varlock/cloudflare-integration@622",
-    "@varlock/vite-integration": "^0.2.10",
+    "@varlock/vite-integration": "0.2.10",
     "@vitest/browser-playwright": "^4.0.10",
     "eslint": "^9.39.1",
     "eslint-plugin-svelte": "^3.13.0",
