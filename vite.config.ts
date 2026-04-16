@@ -1,14 +1,14 @@
 import { defineConfig } from 'vitest/config';
 import { playwright } from '@vitest/browser-playwright';
 import { sveltekit } from '@sveltejs/kit/vite';
-import { varlockSvelteKitCloudflarePlugin } from '@varlock/cloudflare-integration/sveltekit';
+import { varlockCloudflareVitePlugin } from '@varlock/cloudflare-integration';
 import { ENV } from 'varlock/env';
 
 console.log('VARLOCK_ENV:', ENV.VARLOCK_ENV);
 
 export default defineConfig({
 	plugins: [
-		varlockSvelteKitCloudflarePlugin(),
+		varlockCloudflareVitePlugin(),
 		sveltekit()
 	],
 	test: {
